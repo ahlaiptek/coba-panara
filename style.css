@@ -1,5 +1,6 @@
 img {
     width: -moz-available;
+    width: -webkit-fill-available;
 }
 
 header {
