@@ -1,0 +1,139 @@
+<!-- Menambah 3 elemen pada setiap halaman.
+1. Berupa custom,
+2. Berupa kontak statis
+3. Berupa kontak statis
+-->
+<script>
+  function tambahPoster(elemenTarget, src) {
+    const is_debugging = false; // Isi 'true' saat debugging
+    if (is_debugging) debugger;
+    const element = $('<div>').addClass('informasi-poster').html(`<a href="${src}`);
+
+    if (is_debugging) debugger;
+    element.insertBefore(elemenTarget);
+  }
+
+  // Fungsi untuk menambahkan informasi kontak pada elemen target
+  function tambahKontak() {
+    const is_debugging = false; // Isi 'true' saat debugging
+
+    if (is_debugging) debugger;
+    let elemenTarget = $('.pagelayer-text-holder:first');
+    // Terkadang ada halaman yang struktur nama kelasnya tidaklah sama, maka berikut adalah penyesuaiannya
+
+    const semuaParagraf = elemenTarget.find('p');
+
+    let kontakBaru = $('<div>').addClass('informasi-kontak').html(`
+        <h3>Informasi Kontak</h3>
+        <hr>
+        <p><a href="https://wa.me/6289668538522?text=Hallo%20Panara%2C%20saya%20mau%20dapat%20diskon%20Panara%20Course.%20Bagaimana%20infonya%20ya%3F%20%3A)" target="_blank">WA 1: 0896-6853-8522</a></p>
+        <p><a href="https://wa.me/6281217109208?text=Hallo%20Panara%2C%20saya%20mau%20dapat%20diskon%20Panara%20Course.%20Bagaimana%20infonya%20ya%3F%20%3A)" target="_blank">WA 2: 0812-1710-9208</a></p>
+        `);
+
+    // if (is_debugging) debugger;
+    // kontakBaru.insertAfter(semuaParagraf.first());
+
+    // ELemen custom
+    // TODO: Tugas di sini
+    const elmenKustom = $('<div>').addClass('informasi-kontak').html(`
+        <h3>Informasi Kontak</h3>
+        <hr>
+        <p><a href="https://wa.me/6289668538522?text=Hallo%20Panara%2C%20saya%20mau%20dapat%20diskon%20Panara%20Course.%20Bagaimana%20infonya%20ya%3F%20%3A)" target="_blank">WA 1: 0896-6853-8522</a></p>
+        <p><a href="https://wa.me/6281217109208?text=Hallo%20Panara%2C%20saya%20mau%20dapat%20diskon%20Panara%20Course.%20Bagaimana%20infonya%20ya%3F%20%3A)" target="_blank">WA 2: 0812-1710-9208</a></p>
+        `);
+    elmenKustom.insertAfter(semuaParagraf.first());
+
+    const paragrafTengah = semuaParagraf.eq(Math.floor(semuaParagraf.length / 2));
+    const paragrafAkhir = semuaParagraf.last();
+
+    if (is_debugging) debugger;
+
+    // Cek apakah paragrafTengah berada dalam tabel
+    const kontakBaruTengah = kontakBaru.clone(true);
+    if (paragrafTengah.parents('table').length > 0) {
+      // Jika berada dalam tabel, clone kontakBaru dan letakkan setelah tabel
+      paragrafTengah.parents('table').after(kontakBaruTengah);
+    } else {
+      // Jika tidak berada dalam tabel, letakkan paragrafTengah seperti biasa
+      kontakBaruTengah.insertAfter(paragrafTengah);
+    }
+
+    const kontakBaruAkhir = kontakBaru.clone(true);
+    if (is_debugging) debugger;
+    elemenTarget.append(kontakBaruAkhir);
+
+    // Menambahkan poster
+    if (is_debugging) debugger;
+    const URLS = [
+      'https://api.whatsapp.com/send?phone=6281217109208&text=Hallo%20Panara,%20saya%20tertarik%20dengan%20layanan%20Panara%20Course.%20Boleh%20tanya-tanya%20dulu?%20:)"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4RMKWpUW-1AuZbZ7uK2yfszrfkJKNINQxlqsKjtnDH0OB4Lzm-pEYKuySKL-RWRkFFPVB4IW0r2TmyONYfAk3LfGUDL0unZjKRHKA_BJN_7-KR00R-ASuB7qSUxps5OVRFI5szIqvb_cP9xULf4NRZ5hjXEQOvmAsTn4oOfIILJZvXNAMuh9NTMMj3QA/s16000/Bimbel%20Polri%20TNI.jpeg" ></a>',
+      'https://play.google.com/store/apps/details?id=id.panara.panara"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4D2Qhb6BI3K0Y00JZlinruAbZ6tbyWCfqQ9OjiGfp5P5xLD18VaRtabYTB0YKGX7MigIRA99Z89I8rPAFx5-kAABkWamQIRR2EFwsAL4drD0h1YGMEsoHUCkbhq-5N4VUKHJdAJDHmYImfJpoYEWTBJr2dBmp4avwTbfCBo8ymwHxQZ4E39SpwqStu-c/s1600/Bimbel%20Polri%20TNI%20Kedinasan.jpeg" ></a>',
+      'https://panaracourse.web.id/ecourse"><img src="https://panara.id/sitepad-data/uploads/2024/03/WhatsApp-Image-2024-03-19-at-10.23.05.jpeg" ></a>',
+
+    ];
+    tambahPoster(kontakBaru, URLS[0]);
+    tambahPoster(kontakBaruTengah, URLS[1]);
+    tambahPoster(kontakBaruAkhir, URLS[2]);
+  }
+
+  // Memeriksa URL saat halaman dimuat
+  $(document).ready(function() {
+    const targetSegment = 'blog'; // Ganti dengan segmen pertama yang diinginkan
+    const currentSegment = window.location.pathname.split('/')[1];
+    // tambahKontak()
+    if (currentSegment === targetSegment) {
+      tambahKontak();
+    }
+  });
+</script>
+
+<style>
+  .informasi-kontak {
+    background-color: #68d4c569;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 2px;
+    margin-top: 2px;
+  }
+
+  .informasi-kontak h3 {
+    margin-top: 0;
+  }
+
+  .informasi-kontak p {
+    margin-bottom: 1.5px;
+  }
+
+  .informasi-poster img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 10px;
+  }
+</style>
+
+<!-- MERUBAH SEMUA GAMBAR KOSONG (DENGAN URL SPESIFIK) MENJADI GAMBAR TERTENTU -->
+<script>
+  function ready(callback) {
+    // in case the document is already rendered
+    if (document.readyState != 'loading') callback();
+    // modern browsers
+    else if (document.addEventListener) document.addEventListener('DOMContentLoaded', callback);
+    // IE <= 8
+    else document.attachEvent('onreadystatechange', function() {
+      if (document.readyState == 'complete') callback();
+    });
+  }
+
+  ready(function() {
+    const images = document.getElementsByTagName("img");
+    const TARGETS = document.getElementsByClassName("pagelayer-wposts-thumb");
+
+    const GAMBAR_BARU = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHu-bgyTjBqP0rH-AyJ0uCaTom8fOo0TnBR6TyfsjISBWYDQvmqiy7P0y_XGyK1pPZk35Svg2otEgi89hETM7alNgXQrxZwDX6HDAqvs1r-PyciFMFtcv6ffpn4uyh3f8-miVrXWpZGz2GkYXE340s2FabIrkfM6EB_PsHFttH9V-OyHwgzGRX5Lvi/s800/panara%2069.jpg";
+
+    for (const target of TARGETS) {
+      if (target.getAttribute("style") == "background:url(https://panara.id/site-data/plugins/pagelayer-pro/images/no_screenshot.png)") {
+        target.setAttribute("style", "background:url(" + GAMBAR_BARU + ")");
+      }
+    }
+  });
+</script>
