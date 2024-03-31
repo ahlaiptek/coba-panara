@@ -1,0 +1,7 @@
+img {
+    width: -moz-available;
+}
+
+header {
+    width: fit-content;
+}
