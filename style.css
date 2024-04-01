@@ -3,6 +3,10 @@ img {
     width: -webkit-fill-available;
 }
 
-header {
+/* header {
     width: fit-content;
+} */
+
+#gambar-2 {
+    background-color: antiquewhite;
 }
