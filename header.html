@@ -1,0 +1,166 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7KF69E4SC"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-Y7KF69E4SC');
+</script>
+
+<style>
+    .element-baru {
+        text-align: center;
+        font-size: 1.1em;
+        margin: 1.1em;
+    }
+
+    .red {
+        color: red;
+    }
+
+    #footer-page {
+        text-align: center;
+        margin: 1.2em;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .webkit-fill {
+        width: -moz-available;
+        width: -webkit-fill-available;
+    }
+
+    .font-bold {
+        font-weight: bold;
+    }
+
+    #footer-page .call-now p {
+        margin: 0;
+    }
+</style>
+
+
+<script>
+    $(document).ready(function () {
+        let pathName = window.location.pathname.split("/")[1];
+        if (pathName === "blog") {
+            let elements = $("body > div.pagelayer-content > div.p-6UuOjtSrBDhWOnWG.pagelayer-row.pagelayer-row-stretch-auto.pagelayer-height-default > div > div > div > div.p-7JbkxQEvq0skyUUl.pagelayer-post_content > div > div > div > div p");
+
+            let elementBaru = `
+			<div class="element-baru">
+				<p>
+					Pelayanan Kami, Hubungi: <span class="red">WhatsApp 6281217109208<span>
+				</p>
+			</div>
+		`;
+
+            let footerPage = `
+			<footer id="footer-page">
+				<p>
+					"Untuk Portofolio kami bisa Anda cek dengan klik <a href="http://panara.id/portofolio">PORTOFOLIO PANARA COURSE</a>"
+				</p>
+				<p>
+					Untuk pelayanan kami bisa Anda hubungi kontak dibawah
+				</p>
+				<div class="call-now">
+					<p class="red font-bold">Hubungi Sekarang Juga!</p>
+					<p>
+						CS 1: 081217109208
+					</p>
+					<p>
+						CS 2: 081217109208
+					</p>
+					<p>
+						Email: panara.course@gmail.com
+					</p>
+				</div>
+			<footer>
+		`;
+
+            $(elements[2]).append(elementBaru);
+            $(elements[elements.length - 1]).append(footerPage);
+        }
+    });
+</script>
+
+<style>
+    /* Gaya untuk container FAQ */
+    #faq-container {
+        max-width: 600px;
+        ;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+    }
+
+    /* Gaya untuk setiap elemen FAQ */
+    #faq-container .faq-item {
+        cursor: pointer;
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+    }
+
+    /* Gaya untuk judul pertanyaan */
+    #faq-container .faq-item h5 {
+        color: #333;
+        display: inline;
+        /* Tambahkan ini untuk menjaga tombol dalam satu baris dengan judul */
+    }
+
+    /* Gaya untuk tombol dengan logo "=" */
+    #faq-container .faq-item .toggle-button {
+        color: #333;
+        er;
+        display: inline;
+        font-size: 18px;
+        margin-right: 10px;
+    }
+
+    /* Gaya untuk teks jawaban */
+    #faq-container .faq-item .answer {
+        display: none;
+        color: #555;
+        margin-top: 10px;
+    }
+</style>
+<script>
+    function generate_faq(questionsAndAnswers) {
+        const faqContainer = document.getElementById("faq-container");
+        // Iterasi melalui array pertanyaan dan jawaban, dan membuat elemen FAQ
+        questionsAndAnswers.forEach(function (item) {
+            const faqItem = document.createElement("div");
+            faqItem.className = "faq-item";
+
+            const toggleButton = document.createElement("span");
+            toggleButton.className = "toggle-button";
+            toggleButton.textContent = "=";
+            faqItem.addEventListener("click", function () {
+                const answer = faqItem.querySelector(".answer");
+                answer.style.display = answer.style.display === "block" ? "none" : "block";
+            });
+
+            const questionTitle = document.createElement("h5");
+            questionTitle.textContent = item[0];
+
+            const answer = document.createElement("div");
+            answer.className = "answer";
+            answer.textContent = item[1];
+
+            faqItem.appendChild(toggleButton);
+            faqItem.appendChild(questionTitle);
+            faqItem.appendChild(answer);
+
+            faqContainer.appendChild(faqItem);
+        });
+    }
+</script>
