@@ -16,6 +16,10 @@ img {
     border: dotted black;
 }
 
+#tombol-aplikasi:hover  {
+    background-color: rgb(198, 201, 200);
+}
+
 #price {
     background-color: chartreuse;
 }
