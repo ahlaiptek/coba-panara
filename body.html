@@ -35,12 +35,28 @@
 
     // ELemen custom
     // TODO: Tugas di sini
-    const elmenKustom = $('<div>').addClass('informasi-kontak').html(`
-        <h3>Informasi Kontak</h3>
-        <hr>
-        <p><a href="https://wa.me/6289668538522?text=Hallo%20Panara%2C%20saya%20mau%20dapat%20diskon%20Panara%20Course.%20Bagaimana%20infonya%20ya%3F%20%3A)" target="_blank">WA 1: 0896-6853-8522</a></p>
-        <p><a href="https://wa.me/6281217109208?text=Hallo%20Panara%2C%20saya%20mau%20dapat%20diskon%20Panara%20Course.%20Bagaimana%20infonya%20ya%3F%20%3A)" target="_blank">WA 2: 0812-1710-9208</a></p>
-        `);
+    const elmenKustom = $('<div id="elemen-kustom">').html(`
+          <img src="https://panara.id/sitepad-data/uploads/2023/03/Panara-Course-Bimbel-TNI-dan-POLRI-min.png" alt="" srcset="">
+          <h4>Lolos TNI / Polri / Kedinasan dari secangkir kopi?</h4>
+          <div class="text-center">
+            <p>Langsung gas aja, bayarin nongkrong NGOPI ONLINE HANYA Rp. 17.000</p>
+          <a href="https://panaracourse.web.id/aplikasi" target="_blank" class="tombol-aplikasi" class="btn">Dapatkan informasi ter-update & try out TNI/Polri & Kedinasan secara Gratis <br><span>https://panaracourse.web.id/aplikasi</span></a>
+          </div>
+          <div class="course-info card">
+            <h4>E-Course Peremium: Mentoring Lolos TNI-Polri & Kedinasan</h4>
+            <h5>Why Choose ME:</h5>
+            <ul>
+              <li>Belajar alur rekurtmen, soal tes, dll</li>
+              <li>Format video lebih dari 100++</li>
+              <li>Tersusun Step by Step</li>
+              <li>Biaya 90% Lebih Hemat</li>
+              <li>Bisa Belajar Kapanpun dan Dimanapun</li>
+              <li>Materi Bisa Diputar Ribuan Kali</li>
+              <li>Support Diskusi</li>
+            </ul>
+            <p class="text-center" id="price">Harga normal Rp. 897.000<br>Promo Hari ini Hanya <span>RP. 149.000</span></p>
+          </div>
+      `);
     elmenKustom.insertAfter(semuaParagraf.first());
 
     const paragrafTengah = semuaParagraf.eq(Math.floor(semuaParagraf.length / 2));
@@ -70,7 +86,7 @@
       'https://panaracourse.web.id/ecourse"><img src="https://panara.id/sitepad-data/uploads/2024/03/WhatsApp-Image-2024-03-19-at-10.23.05.jpeg" ></a>',
 
     ];
-    tambahPoster(kontakBaru, URLS[0]);
+    tambahPoster(elmenKustom, URLS[0]);
     tambahPoster(kontakBaruTengah, URLS[1]);
     tambahPoster(kontakBaruAkhir, URLS[2]);
   }
@@ -87,6 +103,53 @@
 </script>
 
 <style>
+  #elemen-kustom .card {
+    border: 1px solid rgba(0, 0, 0, .175);
+  }
+
+  #elemen-kustom .text-center {
+    text-align: center;
+  }
+
+  #elemen-kustom {
+    border: 1px solid rgba(0, 0, 0, .175);
+    padding: 5px;
+  }
+
+  #elemen-kustom img {
+    width: -moz-available;
+    width: -webkit-fill-available;
+  }
+
+  #elemen-kustom .tombol-aplikasi {
+    background-color: aqua;
+    border: dotted black;
+    display: inline-block;
+    text-align: center;
+  }
+
+
+  #elemen-kustom .course-info {
+    padding: 8px;
+  }
+
+  #elemen-kustom .course-info ul {
+    padding: 10px;
+  }
+
+  #elemen-kustom .tombol-aplikasi:hover {
+    background-color: rgb(198, 201, 200);
+  }
+
+  #price {
+    background-color: chartreuse;
+  }
+
+  #price span {
+    background-color: aliceblue;
+    font-size: 20px;
+  }
+
   .informasi-kontak {
     background-color: #68d4c569;
     border: 1px solid #ccc;
